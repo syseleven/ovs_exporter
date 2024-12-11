@@ -324,19 +324,21 @@ var (
 // the prometheus metrics package.
 type Exporter struct {
 	sync.RWMutex
-	Client               *ovsdbclient.OvsClient
-	timeout              int
-	pollInterval         int64
-	errors               int64
-	errorsLocker         sync.RWMutex
-	nextCollectionTicker int64
-	metrics              []prometheus.Metric
-	logger               log.Logger
+	Client                       *ovsdbclient.OvsClient
+	timeout                      int
+	pollInterval                 int64
+	errors                       int64
+	errorsLocker                 sync.RWMutex
+	nextCollectionTicker         int64
+	metrics                      []prometheus.Metric
+	logger                       log.Logger
+	collectProcessRelatedMetrics bool
 }
 
 type Options struct {
-	Timeout int
-	Logger  log.Logger
+	Timeout                      int
+	Logger                       log.Logger
+	CollectProcessRelatedMetrics bool
 }
 
 // NewLogger returns an instance of logger.
@@ -360,7 +362,8 @@ func NewExporter(opts Options) *Exporter {
 	version.BuildUser = buildUser
 	version.BuildDate = buildDate
 	e := Exporter{
-		timeout: opts.Timeout,
+		timeout:                      opts.Timeout,
+		collectProcessRelatedMetrics: opts.CollectProcessRelatedMetrics,
 	}
 	client := ovsdbclient.NewOvsClient()
 	client.Timeout = opts.Timeout
@@ -570,6 +573,13 @@ func (e *Exporter) GatherMetrics() {
 		"ovsdb-server",
 		"ovs-vswitchd",
 	}
+	if !e.collectProcessRelatedMetrics {
+		components = []string{}
+		level.Debug(e.logger).Log(
+			"msg", "Didn't call GetProcessInfo() because 'collectProcessRelatedMetrics' is false",
+		        "system_id", e.Client.System.ID,
+		)
+	}
 	for _, component := range components {
 		p, err := e.Client.GetProcessInfo(component)
 		level.Debug(e.logger).Log(
@@ -683,6 +693,14 @@ func (e *Exporter) GatherMetrics() {
 	components = []string{
 		"ovsdb-server",
 		"vswitchd-service",
+	}
+
+	if !e.collectProcessRelatedMetrics {
+		components = []string{}
+		level.Debug(e.logger).Log(
+			"msg", "Didn't call AppListCommands() because 'collectProcessRelatedMetrics' is false",
+		        "system_id", e.Client.System.ID,
+		)
 	}
 
 	for _, component := range components {
@@ -1268,11 +1286,13 @@ func (e *Exporter) GatherMetrics() {
 		)
 	}
 
-	e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
-		up,
-		prometheus.GaugeValue,
-		float64(upValue),
-	))
+	if e.collectProcessRelatedMetrics {
+		e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
+			up,
+			prometheus.GaugeValue,
+			float64(upValue),
+		))
+	}
 
 	e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
 		info,

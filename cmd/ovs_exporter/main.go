@@ -30,6 +30,7 @@ func main() {
 	var serviceVswitchdFilePidPath string
 	var serviceOvnControllerFileLogPath string
 	var serviceOvnControllerFilePidPath string
+	var collectProcessRelatedMetrics bool
 
 	flag.StringVar(&listenAddress, "web.listen-address", ":9475", "Address to listen on for web interface and telemetry.")
 	flag.StringVar(&metricsPath, "web.telemetry-path", "/metrics", "Path under which to expose metrics.")
@@ -52,6 +53,8 @@ func main() {
 
 	flag.StringVar(&serviceOvnControllerFileLogPath, "service.ovncontroller.file.log.path", "/var/log/openvswitch/ovn-controller.log", "OVN controller daemon log file.")
 	flag.StringVar(&serviceOvnControllerFilePidPath, "service.ovncontroller.file.pid.path", "/var/run/openvswitch/ovn-controller.pid", "OVN controller daemon process id file.")
+
+	flag.BoolVar(&collectProcessRelatedMetrics, "collectProcessRelatedMetrics", true, "collect process-related metrics")
 
 	var usageHelp = func() {
 		fmt.Fprintf(os.Stderr, "\n%s - Prometheus Exporter for Open Virtual Switch (OVS)\n\n", ovs.GetExporterName())
@@ -86,8 +89,9 @@ func main() {
 	)
 
 	opts := ovs.Options{
-		Timeout: pollTimeout,
-		Logger:  logger,
+		Timeout:                      pollTimeout,
+		Logger:                       logger,
+		CollectProcessRelatedMetrics: collectProcessRelatedMetrics,
 	}
 
 	exporter := ovs.NewExporter(opts)
