@@ -1,3 +1,5 @@
+github.com/Dmitry-Eremeev/ovsdbclient v1.1.0 h1:xXe5SoY58e+KTv/EF4DOyRK/BQ4cbTcbBjJAUS9IyR4=
+github.com/Dmitry-Eremeev/ovsdbclient v1.1.0/go.mod h1:E5KuyejXQfuxFPKIjFLkr/1uIwF6Tpzt7J0jskH7kLU=
 github.com/beorn7/perks v1.0.1 h1:VlbKKnNfV8bJzeqoa4cOKqO6bYr3WgKZxO8Z16+hsOM=
 github.com/beorn7/perks v1.0.1/go.mod h1:G2ZrVWU2WbWT9wwq4/hrbKbnv/1ERSJQ0ibhJ6rlkpw=
 github.com/cespare/xxhash/v2 v2.2.0 h1:DC2CZ1Ep5Y4k3ZQ899DldepgrayRUGE6BBZ/cd9Cj44=
@@ -13,8 +15,6 @@ github.com/golang/protobuf v1.5.3 h1:KhyjKVUg7Usr/dYsdSqoFveMYd5ko72D+zANwlG1mmg
 github.com/golang/protobuf v1.5.3/go.mod h1:XVQd3VNwM+JqD3oG2Ue2ip4fOMUkwXdXDdiuN0vRsmY=
 github.com/google/go-cmp v0.5.5/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/go-cmp v0.5.9 h1:O2Tfq5qg4qc4AmwVlvv0oLiVAGB7enBSJ2x2DqQFi38=
-github.com/greenpau/ovsdb v1.0.4 h1:ekvfucZr5Dl/bYgcz6+nido4lSBDqG5kqLFUv55BqvQ=
-github.com/greenpau/ovsdb v1.0.4/go.mod h1:eZ72kooepm3wDa9o4YgmfEmbFCeibzSYrrZazwaopxo=
 github.com/matttproud/golang_protobuf_extensions v1.0.4 h1:mmDVorXM7PCGKw94cs5zkfA9PSy5pEvNWRP0ET0TIVo=
 github.com/matttproud/golang_protobuf_extensions v1.0.4/go.mod h1:BSXmuO+STAnVfrANrmjBb36TMTDstsz7MSK+HVaYKv4=
 github.com/prometheus/client_golang v1.16.0 h1:yk/hx9hDbrGHovbci4BY+pRMfSuuat626eFsHb7tmT8=

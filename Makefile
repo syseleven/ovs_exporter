@@ -6,7 +6,7 @@ BUILD_USER:=$(shell whoami)
 BUILD_DATE:=$(shell date +"%Y-%m-%d")
 BINARY:=ovs-exporter
 VERBOSE:=-v
-PROJECT=github.com/greenpau/ovs_exporter
+PROJECT=github.com/Dmitry-Eremeev/ovs_exporter
 PKG_DIR=pkg/ovs_exporter
 BUILD_OS:=linux
 BUILD_ARCH:=amd64
@@ -82,9 +82,6 @@ dist: all
 	@cp assets/systemd/add_service.sh ./dist/$(BINARY)-$(APP_VERSION).$(BUILD_OS)-$(BUILD_ARCH)/install.sh
 	@chmod +x ./dist/$(BINARY)-$(APP_VERSION).$(BUILD_OS)-$(BUILD_ARCH)/*.sh
 	@cd ./dist/ && tar -cvzf ./$(BINARY)-$(APP_VERSION).$(BUILD_OS)-$(BUILD_ARCH).tar.gz ./$(BINARY)-$(APP_VERSION).$(BUILD_OS)-$(BUILD_ARCH)
-
-license:
-	@addlicense -c "Paul Greenberg greenpau@outlook.com" -y 2020 pkg/*/*.go
 
 release: license
 	@echo "Making release"

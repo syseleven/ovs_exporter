@@ -23,7 +23,7 @@ import (
 
 	"github.com/go-kit/log"
 	"github.com/go-kit/log/level"
-	"github.com/greenpau/ovsdb"
+	"github.com/Dmitry-Eremeev/ovsdbclient"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/common/promlog"
 	"github.com/prometheus/common/version"
@@ -324,7 +324,7 @@ var (
 // the prometheus metrics package.
 type Exporter struct {
 	sync.RWMutex
-	Client               *ovsdb.OvsClient
+	Client               *ovsdbclient.OvsClient
 	timeout              int
 	pollInterval         int64
 	errors               int64
@@ -362,7 +362,7 @@ func NewExporter(opts Options) *Exporter {
 	e := Exporter{
 		timeout: opts.Timeout,
 	}
-	client := ovsdb.NewOvsClient()
+	client := ovsdbclient.NewOvsClient()
 	client.Timeout = opts.Timeout
 	e.Client = client
 	e.logger = opts.Logger

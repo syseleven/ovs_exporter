@@ -12,13 +12,13 @@ builds:
         -X github.com/prometheus/common/version.Version={{ .Version }}
         -X github.com/prometheus/common/version.Revision={{ .Commit }}
         -X github.com/prometheus/common/version.Branch={{ .Branch }}
-        -X github.com/prometheus/common/version.BuildUser=greenpau
+        -X github.com/prometheus/common/version.BuildUser=Dmitry-Eremeev
         -X github.com/prometheus/common/version.BuildDate={{ .Date }}
-        -X github.com/greenpau/ovs_exporter/pkg/ovs_exporter.appVersion={{ .Version }}
-        -X github.com/greenpau/ovs_exporter/pkg/ovs_exporter.gitBranch={{ .Branch }}
-        -X github.com/greenpau/ovs_exporter/pkg/ovs_exporter.gitCommit={{ .Commit }}
-        -X github.com/greenpau/ovs_exporter/pkg/ovs_exporter.buildUser=greenpau
-        -X github.com/greenpau/ovs_exporter/pkg/ovs_exporter.buildDate={{ .Date }}
+        -X github.com/Dmitry-Eremeev/ovs_exporter/pkg/ovs_exporter.appVersion={{ .Version }}
+        -X github.com/Dmitry-Eremeev/ovs_exporter/pkg/ovs_exporter.gitBranch={{ .Branch }}
+        -X github.com/Dmitry-Eremeev/ovs_exporter/pkg/ovs_exporter.gitCommit={{ .Commit }}
+        -X github.com/Dmitry-Eremeev/ovs_exporter/pkg/ovs_exporter.buildUser=Dmitry-Eremeev
+        -X github.com/Dmitry-Eremeev/ovs_exporter/pkg/ovs_exporter.buildDate={{ .Date }}
     main: './cmd/ovs_exporter'
     asmflags:
       - 'all=-trimpath={{.Env.GOPATH}}'
