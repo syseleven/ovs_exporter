@@ -165,7 +165,7 @@ var (
 	interfaceMain = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface"),
 		"Represents OVS interface. This is the primary metric for all other interface metrics. This metrics is always 1.",
-		[]string{"system_id", "uuid", "name"}, nil,
+		[]string{"system_id", "uuid", "name", "bridge_name"}, nil,
 	)
 	interfaceAdminState = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_admin_state"),
@@ -944,6 +944,7 @@ func (e *Exporter) GatherMetrics() {
 				e.Client.System.ID,
 				intf.UUID,
 				intf.Name,
+				intf.BridgeName,
 			))
 			var adminState float64
 			switch intf.AdminState {
