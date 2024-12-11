@@ -170,153 +170,153 @@ var (
 	interfaceAdminState = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_admin_state"),
 		"The administrative state of the physical network link of OVS interface. The values are: down(0), up(1), other(2).",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceLinkState = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_link_state"),
 		"The  observed  state of the physical network link of OVS interface. The values are: down(0), up(1), other(2).",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceIngressPolicingBurst = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_ingress_policing_burst"),
 		"Maximum burst size for data received on OVS interface, in kb. The default burst size if set to 0 is 8000 kbit.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceIngressPolicingRate = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_ingress_policing_rate"),
 		"Maximum rate for data received on OVS interface, in kbps. If the value is 0, then policing is disabled.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceMacInUse = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_mac_in_use"),
 		"The MAC address in use by OVS interface.",
-		[]string{"system_id", "uuid", "mac_address"}, nil,
+		[]string{"system_id", "uuid", "mac_address", "name"}, nil,
 	)
 	interfaceMtu = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_mtu"),
 		"The currently configured MTU for OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceDuplex = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_duplex"),
 		"The duplex mode of the physical network link of OVS interface. The values are: other(0), half(1), full(2).",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceOfPort = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_of_port"),
 		"Represents the OpenFlow port ID associated with OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceIfIndex = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_if_index"),
 		"Represents the interface index associated with OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceLocalIndex = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_local_index"),
 		"Represents the local index associated with OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	// OVS Interface Statistics: Receive errors
 	// See http://www.openvswitch.org/support/dist-docs/ovs-vswitchd.conf.db.5.html
 	interfaceStatRxCrcError = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_rx_crc_err"),
 		"Represents the number of CRC errors for the packets received by OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceStatRxDropped = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_rx_dropped"),
 		"Represents the number of input packets dropped by OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceStatRxFrameError = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_rx_frame_err"),
 		"Represents the number of frame alignment errors on the packets received by OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceStatRxOverrunError = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_rx_over_err"),
 		"Represents the number of packets with RX overrun received by OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceStatRxErrorsTotal = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_rx_errors"),
 		"Represents the total number of packets with errors received by OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceStatRxMissedErrors = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_rx_missed_errors"),
 		"Represents the number of missed packets received by OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	// OVS Interface Statistics: Successful transmit and receive counters
 	interfaceStatRxPackets = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_rx_packets"),
 		"Represents the number of received packets by OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceStatRxBytes = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_rx_bytes"),
 		"Represents the number of received bytes by OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceStatTxPackets = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_tx_packets"),
 		"Represents the number of transmitted packets by OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceStatTxBytes = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_tx_bytes"),
 		"Represents the number of transmitted bytes by OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	// OVS Interface Statistics: Transmit errors
 	interfaceStatTxDropped = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_tx_dropped"),
 		"Represents the number of output packets dropped by OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceStatTxErrorsTotal = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_tx_errors"),
 		"Represents the total number of transmit errors by OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceStatCollisions = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_collisions"),
 		"Represents the number of collisions on OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	// OVS Link attributes, e.g. speed, resets, etc.
 	interfaceLinkResets = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_link_resets"),
 		"The number of times Open vSwitch has observed the link_state of OVS interface change.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	interfaceLinkSpeed = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_link_speed"),
 		"The negotiated speed of the physical network link of OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 	// Interface Status, Options, and External IDs Key-Value Pairs
 	interfaceStatusKeyValuePair = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_status"),
 		"Key-value pair that report port status of OVS interface.",
-		[]string{"system_id", "uuid", "key", "value"}, nil,
+		[]string{"system_id", "uuid", "key", "value", "name"}, nil,
 	)
 	interfaceOptionsKeyValuePair = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_options"),
 		"Key-value pair that report options of OVS interface.",
-		[]string{"system_id", "uuid", "key", "value"}, nil,
+		[]string{"system_id", "uuid", "key", "value", "name"}, nil,
 	)
 	interfaceExternalIdKeyValuePair = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_external_ids"),
 		"Key-value pair that report external IDs of OVS interface.",
-		[]string{"system_id", "uuid", "key", "value"}, nil,
+		[]string{"system_id", "uuid", "key", "value", "name"}, nil,
 	)
 	interfaceStateMulticastPackets = prometheus.NewDesc(
 		prometheus.BuildFQName(namespace, "", "interface_rx_multicast_packets"),
 		"Represents the number of received multicast packets by OVS interface.",
-		[]string{"system_id", "uuid"}, nil,
+		[]string{"system_id", "uuid", "name"}, nil,
 	)
 )
 
@@ -960,6 +960,7 @@ func (e *Exporter) GatherMetrics() {
 				adminState,
 				e.Client.System.ID,
 				intf.UUID,
+				intf.Name,
 			))
 			var linkState float64
 			switch intf.LinkState {
@@ -976,6 +977,7 @@ func (e *Exporter) GatherMetrics() {
 				linkState,
 				e.Client.System.ID,
 				intf.UUID,
+				intf.Name,
 			))
 			e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
 				interfaceIngressPolicingBurst,
@@ -983,6 +985,7 @@ func (e *Exporter) GatherMetrics() {
 				intf.IngressPolicingBurst,
 				e.Client.System.ID,
 				intf.UUID,
+				intf.Name,
 			))
 			e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
 				interfaceIngressPolicingRate,
@@ -990,6 +993,7 @@ func (e *Exporter) GatherMetrics() {
 				intf.IngressPolicingRate,
 				e.Client.System.ID,
 				intf.UUID,
+				intf.Name,
 			))
 			e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
 				interfaceMacInUse,
@@ -998,6 +1002,7 @@ func (e *Exporter) GatherMetrics() {
 				e.Client.System.ID,
 				intf.UUID,
 				intf.MacInUse,
+				intf.Name,
 			))
 			e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
 				interfaceMtu,
@@ -1005,6 +1010,7 @@ func (e *Exporter) GatherMetrics() {
 				intf.Mtu,
 				e.Client.System.ID,
 				intf.UUID,
+				intf.Name,
 			))
 			var linkDuplex float64
 			switch intf.Duplex {
@@ -1021,6 +1027,7 @@ func (e *Exporter) GatherMetrics() {
 				linkDuplex,
 				e.Client.System.ID,
 				intf.UUID,
+				intf.Name,
 			))
 			e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
 				interfaceOfPort,
@@ -1028,6 +1035,7 @@ func (e *Exporter) GatherMetrics() {
 				intf.OfPort,
 				e.Client.System.ID,
 				intf.UUID,
+				intf.Name,
 			))
 			e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
 				interfaceIfIndex,
@@ -1035,6 +1043,7 @@ func (e *Exporter) GatherMetrics() {
 				intf.IfIndex,
 				e.Client.System.ID,
 				intf.UUID,
+				intf.Name,
 			))
 			e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
 				interfaceLocalIndex,
@@ -1042,6 +1051,7 @@ func (e *Exporter) GatherMetrics() {
 				intf.Index,
 				e.Client.System.ID,
 				intf.UUID,
+				intf.Name,
 			))
 			for key, value := range intf.Statistics {
 				switch key {
@@ -1052,6 +1062,7 @@ func (e *Exporter) GatherMetrics() {
 						float64(value),
 						e.Client.System.ID,
 						intf.UUID,
+						intf.Name,
 					))
 				case "rx_dropped":
 					e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
@@ -1060,6 +1071,7 @@ func (e *Exporter) GatherMetrics() {
 						float64(value),
 						e.Client.System.ID,
 						intf.UUID,
+						intf.Name,
 					))
 				case "rx_frame_err":
 					e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
@@ -1068,6 +1080,7 @@ func (e *Exporter) GatherMetrics() {
 						float64(value),
 						e.Client.System.ID,
 						intf.UUID,
+						intf.Name,
 					))
 				case "rx_over_err":
 					e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
@@ -1076,6 +1089,7 @@ func (e *Exporter) GatherMetrics() {
 						float64(value),
 						e.Client.System.ID,
 						intf.UUID,
+						intf.Name,
 					))
 				case "rx_errors":
 					e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
@@ -1084,6 +1098,7 @@ func (e *Exporter) GatherMetrics() {
 						float64(value),
 						e.Client.System.ID,
 						intf.UUID,
+						intf.Name,
 					))
 				case "rx_packets":
 					e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
@@ -1092,6 +1107,7 @@ func (e *Exporter) GatherMetrics() {
 						float64(value),
 						e.Client.System.ID,
 						intf.UUID,
+						intf.Name,
 					))
 				case "rx_bytes":
 					e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
@@ -1100,6 +1116,7 @@ func (e *Exporter) GatherMetrics() {
 						float64(value),
 						e.Client.System.ID,
 						intf.UUID,
+						intf.Name,
 					))
 				case "tx_packets":
 					e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
@@ -1108,6 +1125,7 @@ func (e *Exporter) GatherMetrics() {
 						float64(value),
 						e.Client.System.ID,
 						intf.UUID,
+						intf.Name,
 					))
 				case "tx_bytes":
 					e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
@@ -1116,6 +1134,7 @@ func (e *Exporter) GatherMetrics() {
 						float64(value),
 						e.Client.System.ID,
 						intf.UUID,
+						intf.Name,
 					))
 				case "tx_dropped":
 					e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
@@ -1124,6 +1143,7 @@ func (e *Exporter) GatherMetrics() {
 						float64(value),
 						e.Client.System.ID,
 						intf.UUID,
+						intf.Name,
 					))
 				case "tx_errors":
 					e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
@@ -1132,6 +1152,7 @@ func (e *Exporter) GatherMetrics() {
 						float64(value),
 						e.Client.System.ID,
 						intf.UUID,
+						intf.Name,
 					))
 				case "collisions":
 					e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
@@ -1140,6 +1161,7 @@ func (e *Exporter) GatherMetrics() {
 						float64(value),
 						e.Client.System.ID,
 						intf.UUID,
+						intf.Name,
 					))
 				case "rx_missed_errors":
 					e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
@@ -1148,6 +1170,7 @@ func (e *Exporter) GatherMetrics() {
 						float64(value),
 						e.Client.System.ID,
 						intf.UUID,
+						intf.Name,
 					))
 				case "rx_multicast_packets":
 					e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
@@ -1156,6 +1179,7 @@ func (e *Exporter) GatherMetrics() {
 						float64(value),
 						e.Client.System.ID,
 						intf.UUID,
+						intf.Name,
 					))
 				default:
 					level.Debug(e.logger).Log(
@@ -1173,6 +1197,7 @@ func (e *Exporter) GatherMetrics() {
 				intf.LinkResets,
 				e.Client.System.ID,
 				intf.UUID,
+				intf.Name,
 			))
 			e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
 				interfaceLinkSpeed,
@@ -1180,6 +1205,7 @@ func (e *Exporter) GatherMetrics() {
 				intf.LinkSpeed,
 				e.Client.System.ID,
 				intf.UUID,
+				intf.Name,
 			))
 			for key, value := range intf.Status {
 				e.metrics = append(e.metrics, prometheus.MustNewConstMetric(
@@ -1190,6 +1216,7 @@ func (e *Exporter) GatherMetrics() {
 					intf.UUID,
 					key,
 					value,
+					intf.Name,
 				))
 			}
 			for key, value := range intf.Options {
@@ -1201,6 +1228,7 @@ func (e *Exporter) GatherMetrics() {
 					intf.UUID,
 					key,
 					value,
+					intf.Name,
 				))
 			}
 			for key, value := range intf.ExternalIDs {
@@ -1212,6 +1240,7 @@ func (e *Exporter) GatherMetrics() {
 					intf.UUID,
 					key,
 					value,
+					intf.Name,
 				))
 			}
 		}
