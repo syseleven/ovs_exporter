@@ -70,7 +70,7 @@ deploy:
 
 qtest:
 	@./bin/$(BUILD_OS)-$(BUILD_ARCH)/$(BINARY) -version
-	@sudo ./bin/$(BUILD_OS)-$(BUILD_ARCH)/$(BINARY) -web.listen-address 0.0.0.0:5000 -log.level debug -ovs.poll-interval 5
+	@sudo ./bin/$(BUILD_OS)-$(BUILD_ARCH)/$(BINARY) --web.listen-address 0.0.0.0:5000 --log.level debug --ovs.poll-interval 5
 
 dist: all
 	@mkdir -p ./dist
