@@ -14,7 +14,7 @@ This exporter exports metrics from the following OVS components:
 Run the following commands to build and test it:
 
 ```bash
-git clone https://github.com/Dmitry-Eremeev/ovs_exporter.git
+git clone https://github.com/syseleven/ovs_exporter.git
 cd ovs_exporter
 make
 make qtest

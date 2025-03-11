@@ -7,8 +7,7 @@ import (
 	"os"
 
 	"github.com/alecthomas/kingpin/v2"
-	"github.com/Dmitry-Eremeev/ovs_exporter/pkg/ovs_exporter"
-	ovs "github.com/Dmitry-Eremeev/ovs_exporter/pkg/ovs_exporter"
+	ovs "github.com/syseleven/ovs_exporter/pkg/ovs_exporter"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/prometheus/exporter-toolkit/web"
@@ -45,7 +44,7 @@ func main() {
 		}
 		os.Exit(0)
 	}
-	logger, error := ovs_exporter.NewLogger(*logLevel)
+	logger, error := ovs.NewLogger(*logLevel)
 	if error != nil {
 		panic(error)
 	}
