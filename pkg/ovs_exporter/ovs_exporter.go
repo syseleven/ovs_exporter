@@ -533,6 +533,7 @@ func (e *Exporter) GatherMetrics() {
 	components := []string{
 		"ovsdb-server",
 		"ovs-vswitchd",
+		"ovn-controller",
 	}
 	if !e.collectProcessRelatedMetrics {
 		components = []string{}
@@ -561,6 +562,7 @@ func (e *Exporter) GatherMetrics() {
 	components = []string{
 		"ovsdb-server",
 		"ovs-vswitchd",
+		"ovn-controller",
 	}
 	for _, component := range components {
 		e.logger.Debug("GatherMetrics() calls GetLogFileInfo()", "component", component)
@@ -611,6 +613,7 @@ func (e *Exporter) GatherMetrics() {
 	components = []string{
 		"ovsdb-server",
 		"vswitchd-service",
+		"ovncontroller-service",
 	}
 
 	if !e.collectProcessRelatedMetrics {
@@ -661,7 +664,7 @@ func (e *Exporter) GatherMetrics() {
 				}
 				e.logger.Debug("GatherMetrics() completed GetAppCoverageMetrics()", "component", component)
 			}
-			if cmds["memory/show"] {
+			if cmds["memory/show"] && (component != "ovncontroller-service") {
 				e.logger.Debug("GatherMetrics() calls GetAppMemoryMetrics()", "component", component)
 				if metrics, err := e.Client.GetAppMemoryMetrics(component); err != nil {
 					e.logger.Error("GetAppMemoryMetrics() failed", "component", component, "error", err.Error())

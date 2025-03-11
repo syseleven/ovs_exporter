@@ -5,7 +5,7 @@ go 1.22
 toolchain go1.22.8
 
 require (
-	github.com/syseleven/ovsdbclient v1.1.1
+	github.com/syseleven/ovsdbclient v1.2.0
 	github.com/alecthomas/kingpin/v2 v2.4.0
 	github.com/prometheus/client_golang v1.20.4
 	github.com/prometheus/common v0.60.1

@@ -21,6 +21,7 @@ func main() {
 	var isShowVersion = kingpin.Flag("version", "version information").Default("false").Bool()
 	var logLevel = kingpin.Flag("log.level", "logging severity level").Default("info").String()
 	var systemRunDir = kingpin.Flag("system.run.dir", "OVS default run directory.").Default("/var/run/openvswitch").String()
+	var systemRunDirOvn = kingpin.Flag("system.run.dir.ovn", "OVN default run directory.").Default("/var/run/ovn").String()
 	var databaseVswitchName = kingpin.Flag("database.vswitch.name", "The name of OVS db.").Default("Open_vSwitch").String()
 	var databaseVswitchSocketRemote = kingpin.Flag("database.vswitch.socket.remote", "JSON-RPC unix socket to OVS db.").Default("unix:/var/run/openvswitch/db.sock").String()
 	var databaseVswitchFileDataPath = kingpin.Flag("database.vswitch.file.data.path", "OVS db file.").Default("/etc/openvswitch/conf.db").String()
@@ -29,8 +30,8 @@ func main() {
 	var databaseVswitchFileSystemIDPath = kingpin.Flag("database.vswitch.file.system.id.path", "OVS system id file.").Default("/etc/openvswitch/system-id.conf").String()
 	var serviceVswitchdFileLogPath = kingpin.Flag("service.vswitchd.file.log.path", "OVS vswitchd daemon log file.").Default("/var/log/openvswitch/ovs-vswitchd.log").String()
 	var serviceVswitchdFilePidPath = kingpin.Flag("service.vswitchd.file.pid.path", "OVS vswitchd daemon process id file.").Default("/var/run/openvswitch/ovs-vswitchd.pid").String()
-	var serviceOvnControllerFileLogPath = kingpin.Flag("service.ovncontroller.file.log.path", "OVN controller daemon log file.").Default("/var/log/openvswitch/ovn-controller.log").String()
-	var serviceOvnControllerFilePidPath = kingpin.Flag("service.ovncontroller.file.pid.path", "OVN controller daemon process id file.").Default("/var/run/openvswitch/ovn-controller.pid").String()
+	var serviceOvnControllerFileLogPath = kingpin.Flag("service.ovncontroller.file.log.path", "OVN controller daemon log file.").Default("/var/log/ovn/ovn-controller.log").String()
+	var serviceOvnControllerFilePidPath = kingpin.Flag("service.ovncontroller.file.pid.path", "OVN controller daemon process id file.").Default("/var/run/ovn/ovn-controller.pid").String()
 	var collectProcessRelatedMetrics = kingpin.Flag("collectProcessRelatedMetrics", "collect process-related metrics").Default("true").Bool()
 	var toolkitFlags = webflag.AddFlags(kingpin.CommandLine, ":9475")
 	kingpin.Parse()
@@ -65,6 +66,7 @@ func main() {
 	exporter := ovs.NewExporter(opts)
 
 	exporter.Client.System.RunDir = *systemRunDir
+	exporter.Client.System.RunDirOvn = *systemRunDirOvn
 
 	exporter.Client.Database.Vswitch.Name = *databaseVswitchName
 	exporter.Client.Database.Vswitch.Socket.Remote = *databaseVswitchSocketRemote
